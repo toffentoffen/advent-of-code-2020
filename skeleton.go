@@ -3,6 +3,7 @@ package main
 import (
 	"bufio"
 	"fmt"
+	"io"
 	"log"
 	"os"
 )
@@ -22,10 +23,13 @@ func readInput(path string) (*data, error) {
 		return nil, fmt.Errorf("could not open %s: %v", path, err)
 	}
 	defer f.Close()
+	return read(f)
+}
 
+func read(r io.Reader) (*data, error) {
 	var d data
 
-	s := bufio.NewScanner(f)
+	s := bufio.NewScanner(r)
 	for s.Scan() {
 		// do stuff
 	}
