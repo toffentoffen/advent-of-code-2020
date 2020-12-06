@@ -321,6 +321,15 @@ func Split(s string, sep string) []string {
 	return strings.Split(s, sep)
 }
 
+// Reverse returns its argument string reversed rune-wise left to right.
+func Reverse(s string) string {
+	r := []rune(s)
+	for i, j := 0, len(r)-1; i < len(r)/2; i, j = i+1, j-1 {
+		r[i], r[j] = r[j], r[i]
+	}
+	return string(r)
+}
+
 // Sscanf is a passthrough for fmt.Sscanf that panics upon failure.
 func Sscanf(str, format string, args ...interface{}) {
 	_, err := fmt.Sscanf(strings.TrimSpace(str), format, args...)
