@@ -6,10 +6,12 @@ import (
 	"io"
 	"log"
 	"os"
+	"strings"
 )
 
 func main() {
 	_, err := readInput("input.txt")
+	//_, err := read(testInputReader())
 	if err != nil {
 		log.Fatal(err)
 	}
@@ -37,4 +39,8 @@ func read(r io.Reader) (*data, error) {
 		log.Fatal(err)
 	}
 	return &d, s.Err()
+}
+
+func testInputReader() io.Reader {
+	return strings.NewReader(``)
 }
