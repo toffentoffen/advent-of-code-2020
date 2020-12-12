@@ -399,6 +399,19 @@ func (p Pos) Numpad() []Pos {
 	}
 }
 
+func NumpadDirections() []Pos {
+	return []Pos{
+		{- 1, - 1},
+		{- 1, + 0},
+		{- 1, + 1},
+		{+ 0, - 1},
+		{+ 0, + 1},
+		{+ 1, - 1},
+		{+ 1, + 0},
+		{+ 1, + 1},
+	}
+}
+
 // StrideTowards "moves" p towards q, taking the smallest "step" that results in
 // integer coordinates.
 func (p Pos) StrideTowards(q Pos) Pos {
