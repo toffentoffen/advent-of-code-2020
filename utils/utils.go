@@ -265,6 +265,16 @@ func IntList(s string) []int {
 	return ints
 }
 
+// IntList parses a list of ints.
+func IntListWithSeparator(s string, sep string) []int {
+	fs := strings.Split(s, sep)
+	ints := make([]int, len(fs))
+	for i, n := range fs {
+		ints[i] = Atoi(n)
+	}
+	return ints
+}
+
 // IntSum returns the sum of a list of ints.
 func IntSum(xs []int) int {
 	return Sum(len(xs), func(i int) int { return xs[i] })
